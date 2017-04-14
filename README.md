@@ -1,19 +1,19 @@
 データベース設計
 
-##messages_table
+## messages_table
 
 |column    |type      |                 |
 |:--------:|:--------:|:---------------:|
-|body      |text      |null:false       |
+|body      |string      |null:false       |
 |image     |string    |null:false       |
-|group_id  |          |foreign_key: true|
-|user_id   |          |foreign_key: true|
+|group_id  |resources |foreign_key: true|
+|user_id   |resources |foreign_key: true|
 |timestamps|          |null:false       |
 
 belongs_to: :user
-belongs__to: :group
+belongs_to: :group
 
-##users_table
+## users_table
 
 |column               |type      |           |
 |:-------------------:|:---------|:--------- |
@@ -28,11 +28,11 @@ has_many: users_groups
 has_many: messages
 
 
-##groups_table
+## groups_table
 
 |column    |type      |           |
 |:--------:|:--------:|:---------:|
-|group_name|string    |null:false |
+|name      |string    |null:false |
 
 has_many: users, through: :users_groups
 has_many: user_groups
@@ -42,8 +42,8 @@ has_many:messages
 
 |column    |type      |                  |
 |:--------:|:--------:|:----------------:|
-|user_id   |          |foreign_key: true |
-|group_id  |          |foreign_key: true |
+|user_id   |resources |foreign_key: true |
+|group_id  |resources |foreign_key: true |
 
 belongs_to: user
 belongs_to: group
