@@ -1,10 +1,12 @@
+@import "valiables";
 .conformation {
-  background-color: #38AEF0;
+  background-color: $blue;
   width: 100%;
   clear: both;
+
   p {
   text-align: center;
-  color: #ffffff;
+  color: $white;
   }
 }
 
@@ -19,25 +21,28 @@
 }
 
 header {
-  height: 35px + 16px + 35px + 40px;
+  height: 126px;
   padding: 0 40px 0;
+
   h2 {
   float: left;
   font-size: 20px;
   padding: 35px 0 15px;
   color: #333333;
   }
+
   h4 {
   clear: both;
   font-size: 12px;
   color: #999999;
   }
+
   p {
   float: right;
   margin-top: 28px;
   border: solid;
-  color: #38AEF0;
-  border-color: #38AEF0;
+  color: $blue;
+  border-color: $blue;
   padding: 0 20px 0;
   line-height: 40px;
   border-width: thin;
@@ -46,19 +51,18 @@ header {
 
 
 .content {
-  background-color: #FFFFFF;
+  background-color: $white;
   border-top: solid;
   border-color: #eeeeee;
   border-width: thin;
-  height: calc(100vh - 126px - 90px - 7px );
+  height: calc(100vh - 223px );
   padding: 6px 40px 0;
   overflow: auto;
-}
 
-.content__list {
+&__list {
   h2 {
   padding-top: 40px;
-  color: #434a54;
+  color: $dark-blue;
   font-size: 16px;
   font-weight: bold;
   display: table-cell;
@@ -70,45 +74,52 @@ header {
   color: #999999;
   font-size: 12px;
   }
+
   p {
-  color: #434a54;
+  color: $dark-blue;
   padding-top: 10px;
   font-size: 14px;
   }
 }
+}
+
 
 footer{
   padding: 20px 40px;
-  background-color: #AAAAAA;
-}
-footer:after {
+  background-color: $white-glay;
+&:after {
   content: "";
   clear: both;
   display: block;
 }
+}
+
 form{
+
   textarea{
-  width: calc(100% - 17.16px - 20px - 72px);
+  width: calc(100% - 109.16px);
   float: left;
-  padding:10px 10px 10px 10px;
+  padding:10px;
   font-size: 16px;
-  color: #434A54;
+  color: $dark-blue;
   border: none;
   resize: none;
   height: 30px;
   }
+
   input{
-  background-color: #38AEF0;
+  background-color: $blue;
   float: right;
   line-height: 50px;
-  color: #FFFFFF;
+  color: $white;
   padding: 0 20px 0;
   border: none;
   }
+
   i {
   position: relative;
   right: 3%;
-  background-color: #ffffff;
-  color: #aaaaaa;
+  background-color: $white;
+  color: $white-glay;
   }
 }

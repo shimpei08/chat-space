@@ -1,37 +1,36 @@
 .sidebar {
   width: 300px;
   float: left;
-  }
 
-.sidebar__upper {
+&__upper {
   background-color: #253141;
-  height: 35px + 16px + 35px + 40px;
+  height: 126px;
   padding: 0 20px 0;
   h2 {
   font-weight: bold;
-  color: #ffffff;
+  color: $white;
   font-size: 16px;
-  line-height: 35px + 16px + 35px + 40px;
+  line-height: 126px;
   display: table-cell;
   }
   i{
-  padding: 0 0 0 20px;
+  padding-left:20px;
   line-height: 126px;
-  color: #ffffff;
+  color: $white;
   display: table-cell;
   }
 }
 
-.sidebar__bottom {
+&__bottom {
   height: calc(100vh - 126px);
   padding: 0 20px 0;
   background-color: #2f3e51;
   overflow: auto;
 }
 
-.sidebar__bottom__list {
+&__bottom__list {
   padding: 20px 0;
-  color: #ffffff;
+  color: $white;
   h3 {
   font-size: 15px;
   padding-bottom: 5px;
@@ -40,4 +39,4 @@
   font-size: 11px;
   }
 }
-
+}
