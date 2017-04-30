@@ -59,28 +59,28 @@ header {
   padding: 6px 40px 0;
   overflow: auto;
 
-&__list {
-  h2 {
-  padding-top: 40px;
-  color: $dark-blue;
-  font-size: 16px;
-  font-weight: bold;
-  display: table-cell;
-  }
+  &__list {
+    h2 {
+    padding-top: 40px;
+    color: $dark-blue;
+    font-size: 16px;
+    font-weight: bold;
+    display: table-cell;
+    }
 
-  h4 {
-  display: table-cell;
-  padding-left: 10px;
-  color: $list-h4;
-  font-size: 12px;
-  }
+    h4 {
+    display: table-cell;
+    padding-left: 10px;
+    color: $list-h4;
+    font-size: 12px;
+    }
 
-  p {
-  color: $dark-blue;
-  padding-top: 10px;
-  font-size: 14px;
+    p {
+    color: $dark-blue;
+    padding-top: 10px;
+    font-size: 14px;
+    }
   }
-}
 }
 
 
