@@ -46,9 +46,5 @@ group :development do
 end
 gem 'haml-rails'
 gem 'erb2haml'
-<<<<<<< HEAD
 gem 'devise'
-
-=======
 gem 'font-awesome-rails'
->>>>>>> master
