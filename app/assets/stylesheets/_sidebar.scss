@@ -3,7 +3,7 @@
   float: left;
 
 &__upper {
-  background-color: #253141;
+  background-color: $side-upper;
   height: 126px;
   padding: 0 20px 0;
   h2 {
@@ -24,7 +24,7 @@
 &__bottom {
   height: calc(100vh - 126px);
   padding: 0 20px 0;
-  background-color: #2f3e51;
+  background-color: $side-bottom;
   overflow: auto;
 }
 
