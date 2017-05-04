@@ -1,11 +1,12 @@
 %div.conformation
-  %p メッセージを送信しました。
 %div.main
   %div.sidebar
     %div.sidebar__upper
-      %h2 current.user.name
-      %i.fa.fa-pencil-square-o{'aria-hidden': 'true'}
-      %i.fa.fa-cog{'aria-hidden': 'true'}
+      %a
+        %h2 current.user.name
+        %i.fa.fa-pencil-square-o{'aria-hidden': 'true'}
+      =link_to edit_user_registration_path do
+        %i.fa.fa-cog{'aria-hidden': 'true'}
     %div.sidebar__bottom
       %ul
         %li.sidebar__bottom__list
