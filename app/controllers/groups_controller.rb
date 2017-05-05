@@ -5,27 +5,27 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
+    group_params
   end
 
   def update
-    @group = Group.find(params[:id])
-    @group.update(update_params)
-    redirect_to :root
+    group_params
+    @group.update(create_params)
+    redirect_to root_path
   end
 
   def create
-    Group.create(create_params)
-    redirect_to :root
+    @group = Group.new(create_params)
+    @group.save
+    redirect_to root_path
   end
 
   private
-
   def create_params
     params.require(:group).permit(:name, {:user_ids => []})
   end
 
-  def update_params
-    params.require(:group).permit(:name, {:user_ids =>[]})
+  def group_params
+    @group = Group.find(params[:id])
   end
 end
