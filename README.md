@@ -1,4 +1,4 @@
-データベース設計
+t.t._データベース設計
 
 ## messages_table
 
@@ -42,8 +42,8 @@ has_many:messages
 
 |column    |type      |                  |
 |:--------:|:--------:|:----------------:|
-|user_id   |resources |foreign_key: true |
-|group_id  |resources |foreign_key: true |
+|user_id   |references |foreign_key: true |
+|group_id  |references |foreign_key: true |
 
 belongs_to: user
 belongs_to: group
