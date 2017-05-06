@@ -4,6 +4,7 @@
     %div.sidebar__upper
       %a
         %h2 current.user.name
+      =link_to new_group_path do
         %i.fa.fa-pencil-square-o{'aria-hidden': 'true'}
       =link_to edit_user_registration_path do
         %i.fa.fa-cog{'aria-hidden': 'true'}
@@ -46,7 +47,7 @@
           %h4 created_at
           %p comment
     %footer
-      %form
+      %form.comment
         %textarea{placeholder: 'send a message'}
         %i.fa.fa-picture-o{'aria-hidden': 'true', style: 'line-height: 50px'}
         %input{type: 'submit'}
