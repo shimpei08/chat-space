@@ -18,7 +18,10 @@
               %h3
                 = group.name
               %p
-                = @comment.body
+                -if group.messages.exists?
+                  = @comment.body
+                -else
+                  まだメッセージはありません。
   %div.contents
     %header
       %h2
@@ -40,6 +43,9 @@
     %footer
       = form_for ([@group,@message]) do |f|
         .comment
-          =f.text_field :body, placeholder: 'send a message'
-          =f.file_field :image, class: 'fa fa-picture-o', html:{'aria-hidden': 'true', style: 'line-height: 50px'}
-          =f.submit "Send", class: "input"
+          =f.label :body do
+            =f.text_field :body, placeholder: 'send a message',class: 'comment__message'
+          =f.label :image do
+            =f.file_field :image, class: 'comment__image'
+            %i.fa.fa-picture-o{'aria-hidden': 'true', style: 'line-height: 50px'}
+          =f.submit "Send", class: "comment__submit"
