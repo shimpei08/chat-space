@@ -30,13 +30,17 @@
 
   &__bottom__list {
     padding: 20px 0;
+    a {
     color: $white;
+    text-decoration: none;
     h3 {
     font-size: 15px;
     padding-bottom: 5px;
     }
+    }
     p {
+    color: $white;
     font-size: 11px;
     }
   }
-  }
+}

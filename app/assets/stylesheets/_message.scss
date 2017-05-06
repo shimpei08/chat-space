@@ -94,8 +94,8 @@ footer{
 }
 }
 
-form.comment{
-  textarea{
+.comment{
+  #message_body{
   width: calc(100% - 109.16px);
   float: left;
   padding:10px;
@@ -106,7 +106,7 @@ form.comment{
   height: 30px;
   }
 
-  input{
+  .input{
   background-color: $blue;
   float: right;
   line-height: 50px;

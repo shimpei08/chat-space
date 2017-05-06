@@ -3,51 +3,46 @@
   %div.sidebar
     %div.sidebar__upper
       %a
-        %h2 current.user.name
-      =link_to new_group_path do
+        %h2
+          = current_user.name
+      = link_to new_group_path do
         %i.fa.fa-pencil-square-o{'aria-hidden': 'true'}
-      =link_to edit_user_registration_path do
+      = link_to edit_user_registration_path do
         %i.fa.fa-cog{'aria-hidden': 'true'}
     %div.sidebar__bottom
       %ul
-        %li.sidebar__bottom__list
-          %h3 group.name
-          %p message
-        %li.sidebar__bottom__list
-          %h3 group.name
-          %p message
-        %li.sidebar__bottom__list
-          %h3 group.name
-          %p message
-        %li.sidebar__bottom__list
-          %h3 group.name
-          %p message
-        %li
-  %div.contents
-    %header
-      %h2 group.name
-      %p Edit
-      %h4 user.name
-    %div.content
-      %ul
-        %li.content__list
-          %h2 current_user.name
-          %h4 created_at
-          %p comment
-        %li.content__list
-          %h2 current_user.name
-          %h4 created_at
-          %p comment
-        %li.content__list
-          %h2 current_user.name
-          %h4 created_at
-          %p comment
-        %li.content__list
-          %h2 current_user.name
-          %h4 created_at
-          %p comment
-    %footer
-      %form.comment
-        %textarea{placeholder: 'send a message'}
-        %i.fa.fa-picture-o{'aria-hidden': 'true', style: 'line-height: 50px'}
-        %input{type: 'submit'}
+        - @groups.each do |group|
+          %li.sidebar__bottom__list
+            = link_to new_group_message_path(group.id) do
+              %h3
+                = group.name
+              %p message
+  / %div.contents
+  /   %header
+  /     %h2 group.name
+  /     %p Edit
+  /     %h4
+  /     = current_user.name
+  /   %div.content
+  /     %ul
+  /       %li.content__list
+  /         %h2 current_user.name
+  /         %h4 created_at
+  /         %p comment
+  /       %li.content__list
+  /         %h2 current_user.name
+  /         %h4 created_at
+  /         %p comment
+  /       %li.content__list
+  /         %h2 current_user.name
+  /         %h4 created_at
+  /         %p comment
+  /       %li.content__list
+  /         %h2 current_user.name
+  /         %h4 created_at
+  /         %p comment
+  /   %footer
+  /     %form.comment
+  /       %textarea{placeholder: 'send a message'}
+  /       %i.fa.fa-picture-o{'aria-hidden': 'true', style: 'line-height: 50px'}
+  /       %input{type: 'submit'}
