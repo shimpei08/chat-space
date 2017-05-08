@@ -12,11 +12,7 @@
     %div.sidebar__bottom
       %ul
         - @groups.each do |group|
-          %li.sidebar__bottom__list
-            = link_to new_group_message_path(group.id) do
-              %h3
-                = group.name
-              %p message
+          = render partial: "message", locals:{group:group}
   / %div.contents
   /   %header
   /     %h2 group.name

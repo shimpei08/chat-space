@@ -7,19 +7,23 @@ class MessagesController < ApplicationController
   def new
     @groups = current_user.groups.order('created_at DESC')
     @group = Group.find(params[:group_id])
-    @messages = Message.where(group_id: @group.id).order('created_at DESC')
+    @messages = @group.messages.order('created_at DESC')
     @message = Message.new
   end
 
   def create
-    @message = Message.new(create_params)
-    @message.save
+    @message = current_user.messages.new(create_params)
+    if @message.save
+    flash[:notice] = "メッセージが送信されました"
+    else
+    flash[:alert] = "メッセージを送信できませんでした"
+    end
     redirect_to new_group_message_path
   end
 
   private
   def create_params
     @group =Group.find(params[:group_id])
-    params.require(:message).permit(:body, :image).merge(user_id: current_user.id, group_id: @group.id )
+    params.require(:message).permit(:body, :image).merge( group_id: @group.id )
   end
 end
