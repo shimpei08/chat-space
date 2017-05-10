@@ -1,10 +1,8 @@
-%div.conformation
 %div.main
   %div.sidebar
     %div.sidebar__upper
       %a
-        %h2
-          = current_user.name
+        %h2= current_user.name
       = link_to new_group_path do
         %i.fa.fa-pencil-square-o{'aria-hidden': 'true'}
       = link_to edit_user_registration_path do
