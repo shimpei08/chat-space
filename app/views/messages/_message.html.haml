@@ -1,9 +1,4 @@
-%li.sidebar__bottom__list
-  = link_to new_group_message_path(group) do
-    %h3
-      = group.name
-    %p
-      - if group.messages.exists?
-        = group.messages.last.body
-      - else
-        まだメッセージはありません。
+%li.content__list
+  %h2= message.user.name
+  %h4= message.created_at.strftime('%Y/%m/%d %H:%M')
+  %p= message.body

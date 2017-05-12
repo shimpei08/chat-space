@@ -13,11 +13,11 @@
 
 .main {
   width: 100vw;
-  }
+}
 
 .contents {
- width: calc(100vw - 300px);
- float: right;
+  width: calc(100vw - 300px);
+  float: right;
 }
 
 header {
@@ -25,27 +25,27 @@ header {
   padding: 0 40px 0;
 
   h2 {
-  float: left;
-  font-size: 20px;
-  padding: 35px 0 15px;
-  color: $black;
+    float: left;
+    font-size: 20px;
+    padding: 35px 0 15px;
+    color: $black;
   }
 
   h4 {
-  clear: both;
-  font-size: 12px;
-  color: $list-h4;
+    clear: both;
+    font-size: 12px;
+    color: $list-h4;
   }
 
   p {
-  float: right;
-  margin-top: 28px;
-  border: solid;
-  color: $blue;
-  border-color: $blue;
-  padding: 0 20px 0;
-  line-height: 40px;
-  border-width: thin;
+    float: right;
+    margin-top: 28px;
+    border: solid;
+    color: $blue;
+    border-color: $blue;
+    padding: 0 20px 0;
+    line-height: 40px;
+    border-width: thin;
   }
 }
 
@@ -61,24 +61,24 @@ header {
 
   &__list {
     h2 {
-    padding-top: 40px;
-    color: $dark-blue;
-    font-size: 16px;
-    font-weight: bold;
-    display: table-cell;
+      padding-top: 40px;
+      color: $dark-blue;
+      font-size: 16px;
+      font-weight: bold;
+      display: table-cell;
     }
 
     h4 {
-    display: table-cell;
-    padding-left: 10px;
-    color: $list-h4;
-    font-size: 12px;
+      display: table-cell;
+      padding-left: 10px;
+      color: $list-h4;
+      font-size: 12px;
     }
 
     p {
-    color: $dark-blue;
-    padding-top: 10px;
-    font-size: 14px;
+      color: $dark-blue;
+      padding-top: 10px;
+      font-size: 14px;
     }
   }
 }

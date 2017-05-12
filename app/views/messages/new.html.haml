@@ -1,40 +1,25 @@
-%div.main
-  %div.sidebar
-    %div.sidebar__upper
-      %a
-        %h2= current_user.name
+.main
+  .sidebar
+    .sidebar__upper
+      %h2= current_user.name
       = link_to new_group_path do
-        %i.fa.fa-pencil-square-o{'aria-hidden': 'true'}
+        %i.fa.fa-pencil-square-o{ 'aria-hidden': 'true' }
       = link_to edit_user_registration_path do
-        %i.fa.fa-cog{'aria-hidden': 'true'}
-    %div.sidebar__bottom
+        %i.fa.fa-cog{ 'aria-hidden': 'true' }
+    .sidebar__bottom
       %ul
-        - @groups.each do |group|
-          = render partial: "message", locals:{group:group}
-  %div.contents
-    %header
-      %h2
-        = @group.name
-      = link_to edit_group_path(@group.id) do
-        %p Edit
-      %h4
-        = current_user.name
-    %div.content
+        = render partial: 'group', collection: @groups
+  .contents
+    = render 'layouts/header'
+    .content
       %ul
-        - @messages.each do |message|
-          %li.content__list
-            %h2
-              =message.user.name
-            %h4
-              = message.created_at.strftime('%Y/%m/%d %H:%M')
-            %p
-              = message.body
+        = render partial: 'message', collection: @messages
     %footer
       = form_for ([@group,@message]) do |f|
         .comment
-          =f.label :body do
-            =f.text_field :body, placeholder: 'send a message',class: 'comment__message'
-          =f.label :image do
+          = f.label :body do
+            = f.text_field :body, placeholder: 'send a message',class: 'comment__message'
+          = f.label :image do
             =f.file_field :image, class: 'comment__image'
             %i.fa.fa-picture-o{'aria-hidden': 'true', style: 'line-height: 50px'}
-          =f.submit "Send", class: "comment__submit"
+          = f.submit "Send", class: "comment__submit"

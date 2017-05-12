@@ -1,12 +1,13 @@
-%div.main
-  %div.sidebar
-    %div.sidebar__upper
+.main
+  .sidebar
+    .sidebar__upper
       %a
         %h2= current_user.name
       = link_to new_group_path do
-        %i.fa.fa-pencil-square-o{'aria-hidden': 'true'}
+        %i.fa.fa-pencil-square-o{ 'aria-hidden': 'true' }
       = link_to edit_user_registration_path do
-        %i.fa.fa-cog{'aria-hidden': 'true'}
-    %div.sidebar__bottom
+        %i.fa.fa-cog{ 'aria-hidden': 'true' }
+    .sidebar__bottom
       %ul
-          = render partial: "message", collection: @groups
+        - @groups.each do |group|
+          = render partial: "group", collection: @groups
