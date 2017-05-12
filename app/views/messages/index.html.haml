@@ -9,5 +9,4 @@
         %i.fa.fa-cog{ 'aria-hidden': 'true' }
     .sidebar__bottom
       %ul
-        - @groups.each do |group|
-          = render partial: "group", collection: @groups
+        = render partial: "group", collection: @groups

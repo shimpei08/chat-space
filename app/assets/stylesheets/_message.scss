@@ -84,12 +84,12 @@ header {
 }
 
 
-footer{
+.message{
   padding: 20px 40px;
   background-color: $white-glay;
-&:after {
-  content: "";
-  clear: both;
-  display: block;
-}
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
 }

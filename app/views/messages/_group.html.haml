@@ -3,7 +3,6 @@
     %h3
       = group.name
     %p
-      - if group.messages.exists?
-        = group.messages.last.body
+      -if group.messages.last.try(:body)
       - else
         まだメッセージはありません。
