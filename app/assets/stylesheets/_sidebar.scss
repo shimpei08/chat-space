@@ -7,17 +7,15 @@
     height: 126px;
     padding: 0 20px 0;
     h2 {
-    font-weight: bold;
-    color: $white;
-    font-size: 16px;
-    line-height: 126px;
-    display: table-cell;
+      font-weight: bold;
+      color: $white;
+      font-size: 16px;
+      line-height: 126px;
+      display: inline-block;
     }
-    i{
-    padding-left:20px;
-    line-height: 126px;
-    color: $white;
-    display: table-cell;
+    i {
+      padding-left:20px;
+      color: $white;
     }
   }
 
@@ -30,13 +28,17 @@
 
   &__bottom__list {
     padding: 20px 0;
-    color: $white;
-    h3 {
-    font-size: 15px;
-    padding-bottom: 5px;
+    a {
+      color: $white;
+      text-decoration: none;
+      h3 {
+        font-size: 15px;
+        padding-bottom: 5px;
+      }
     }
     p {
-    font-size: 11px;
+      color: $white;
+      font-size: 11px;
     }
   }
-  }
+}

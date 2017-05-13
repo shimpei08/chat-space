@@ -1,0 +1,8 @@
+%li.sidebar__bottom__list
+  = link_to new_group_message_path(group) do
+    %h3
+      = group.name
+    %p
+      -if group.messages.last.try(:body)
+      - else
+        まだメッセージはありません。

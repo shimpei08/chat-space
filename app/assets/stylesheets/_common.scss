@@ -1,0 +1,32 @@
+.comment{
+  &__message {
+    width: calc(100% - 119.16px);
+    float: left;
+    padding: 10px;
+    font-size: 16px;
+    color: $dark-blue;
+    border: none;
+    resize: none;
+    height: 30px;
+  }
+
+  &__image {
+    display: none
+  }
+
+  &__submit {
+    background-color: $blue;
+    float: right;
+    line-height: 50px;
+    color: $white;
+    padding: 0 20px 0;
+    border: none;
+  }
+
+  i {
+    position: relative;
+    right: 3%;
+    background-color: $white;
+    color: $white-glay;
+  }
+}
