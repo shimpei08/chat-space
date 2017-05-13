@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(create_params)
     unless @message.save
-      flash[:alert] = "メッセージを送信できませんでした"
+      flash[:alert] = 'メッセージを送信できませんでした'
     end
     redirect_to new_group_message_url
   end
