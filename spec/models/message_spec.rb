@@ -1,12 +1,7 @@
 require 'rails_helper'
 describe Message do
-  let(:user) do
-    create(:user)
-  end
-
-  let(:group) do
-    create(:group)
-  end
+  let(:user)  { create(:user) }
+  let(:group) { create(:group) }
 
   describe '#create' do
     it 'is valid with body, group_id, user_id' do
