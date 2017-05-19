@@ -9,25 +9,24 @@ describe MessagesController do
       login_user user
     end
 
+    before do
+      get :new, params: { group_id: group.id }
+    end
     it "populates an array of groups ordered by created_at desc " do
       groups = user.groups
-      get :new , params: { group_id: group.id }
       expect(assigns(:groups)).to match(groups.sort{ |a,b| b.created_at <=> a.created_at })
     end
 
     it "assigns the requested group to @group" do
-      get :new, params: { group_id:group.id }
       expect(assigns(:group)).to eq group
     end
 
     it "populates an array of messages ordered by created_at desc" do
       messages = group.messages
-      get :new, params: {group_id: group.id}
       expect(assigns(:messages)).to match(messages.sort{ |a,b| b.created_at <=> a.created_at})
     end
 
     it "renders the :new template" do
-      get :new, params: {group_id: group.id}
       expect(response).to render_template :new
     end
 
@@ -51,5 +50,39 @@ describe MessagesController do
   end
 
   describe 'POST #create' do
+    before do
+      login_user user
+    end
+
+    context "with valid attributes" do
+      let(:message_params) {post :create, params: {message: attributes_for(:message), group_id: group.id}}
+      it "saves the new message in the database" do
+        expect{ message_params }.to change(Message, :count).by(1)
+      end
+
+      it "redirect to #new template" do
+        message_params
+        expect(response).to redirect_to new_group_message_url
+      end
+    end
+
+    context "with invalid attributes" do
+      let(:message_params) {post :create, params: {message: attributes_for(:message, {body: nil}), group_id: group.id}}
+      it "can't save the new message in the database" do
+        message_params
+        expect{ message_params }.not_to change(Message, :count)
+      end
+
+      it "includes the flash message" do
+        message_params
+        expect(flash[:alert]).to include("メッセージを送信できませんでした")
+      end
+
+      it "redirect to #new template" do
+      message_params
+      expect(response).to redirect_to new_group_message_url
+      end
+    end
   end
+
 end
