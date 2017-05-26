@@ -14,7 +14,7 @@
     %ul.content
       = render partial: 'message', collection: @messages
     .message
-      = form_for [@group,@message],html:{ class: 'comment' } do |f|
+      = form_for [@group,@message], html: {class: 'comment'} do |f|
         = f.label :body do
           = f.text_field :body, placeholder: 'send a message',class: 'comment__message'
         = f.label :image do

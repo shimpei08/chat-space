@@ -27,11 +27,16 @@ class MessagesController < ApplicationController
   def message_js(message)
     hash = {
       name: message.user.name,
-      created_at: message.created_at.strftime("%Y/%m/%d/ %H:%M:%S"),
+      created_at: created_at(message),
       body: message.body,
       id: message.id
     }
   end
+
+  def created_at(time)
+    time.created_at.strftime("%Y/%m/%d/%H:%M:%S")
+  end
+
 
   def create_params
     params.require(:message).permit(:body, :image).merge( group_id: params[:group_id] )
