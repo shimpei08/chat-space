@@ -2,7 +2,7 @@ $(function() {
   function buildHTML(message) {
     var html =
       `<li class = content__list>
-        <h2 class="message__name"> ${message.name} </h2>
+        <h2 class="message__name"> ${ message.name } </h2>
         <h4 class="message__created_at"> ${ message.created_at } </h4>
         <p class="message__body"> ${ message.body } </p>
       </li>`
