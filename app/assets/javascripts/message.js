@@ -2,9 +2,9 @@ $(function() {
   function buildHTML(message) {
     var html =
     `<li class = content__list>
-    <h2 class="message__name"> ${message.name} </h2>
-    <h4 class="message__created_at"> ${ message.created_at } </h4>
-    <p class="message__body"> ${ message.body } </p>
+      <h2 class="message__name"> ${message.name} </h2>
+      <h4 class="message__created_at"> ${ message.created_at } </h4>
+      <p class="message__body"> ${ message.body } </p>
     </li>`
     return html;
   }
@@ -28,11 +28,10 @@ $(function() {
     })
     .done(function(data) {
       html = buildHTML(data);
-      $('.content').prepend(html)
-      debugger;
+      $('.content').prepend(html);
       $('.comment__message').val('');
     })
-    .fail(function(data) {
+    .fail(function {
       alert('error');
     });
   });
