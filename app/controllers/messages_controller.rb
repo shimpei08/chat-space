@@ -27,13 +27,13 @@ class MessagesController < ApplicationController
   def message_js(message)
     hash = {
       name: message.user.name,
-      created_at: created_at(message),
+      created_at: refine_time(message),
       body: message.body,
       id: message.id
     }
   end
 
-  def created_at(time)
+  def refine_time(time)
     time.created_at.strftime("%Y/%m/%d/%H:%M:%S")
   end
 
