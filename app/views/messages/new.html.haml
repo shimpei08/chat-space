@@ -1,4 +1,4 @@
-.main
+.main{ data: { group_id: @group.id } }
   .sidebar
     .sidebar__upper
       %h2= current_user.name
@@ -11,15 +11,13 @@
         = render partial: 'group', collection: @groups
   .contents
     = render 'layouts/header'
-    .content
-      %ul
-        = render partial: 'message', collection: @messages
+    %ul.content
+      = render partial: 'message', collection: @messages
     .message
-      = form_for ([@group,@message]) do |f|
-        .comment
-          = f.label :body do
-            = f.text_field :body, placeholder: 'send a message',class: 'comment__message'
-          = f.label :image do
-            =f.file_field :image, class: 'comment__image'
-            %i.fa.fa-picture-o{ 'aria-hidden': 'true', style: 'line-height: 50px' }
-          = f.submit "Send", class: "comment__submit"
+      = form_for [@group, @message], html: { class: 'comment' } do |f|
+        = f.label :body do
+          = f.text_field :body, placeholder: 'send a message',class: 'comment__message'
+        = f.label :image do
+          = f.file_field :image, class: 'comment__image'
+          %i.fa.fa-picture-o{ 'aria-hidden': 'true', style: 'line-height: 50px' }
+        = f.submit 'Send', class: 'comment__submit'

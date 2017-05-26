@@ -1,4 +1,4 @@
 %li.content__list
-  %h2= message.user.name
-  %h4= message.created_at.strftime('%Y/%m/%d %H:%M')
-  %p= message.body
+  %h2.message__name= message.user.name
+  %h4.message__created_at= message.created_at.strftime('%Y/%m/%d/%H:%M:%S')
+  %p.message__body= message.body
