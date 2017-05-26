@@ -29,7 +29,8 @@ class MessagesController < ApplicationController
       name: message.user.name,
       created_at: message.created_at.strftime("%Y/%m/%d/ %H:%M:%S"),
       body: message.body,
-      id: message.id }
+      id: message.id
+    }
   end
 
   def create_params
