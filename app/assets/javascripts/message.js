@@ -31,7 +31,7 @@ $(function() {
       $('.content').prepend(html);
       $('.comment__message').val('');
     })
-    .fail(function {
+    .fail(function() {
       alert('error');
     });
   });
