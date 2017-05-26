@@ -27,8 +27,7 @@ $(function() {
       contentType: false
     })
     .done(function(data) {
-      html = buildHTML(data);
-      $('.content').prepend(html);
+      $('.content').prepend(buildHTML(data));
       $('.comment__message').val('');
     })
     .fail(function() {
