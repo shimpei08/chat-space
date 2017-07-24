@@ -104,3 +104,8 @@
     border: 0;
   }
 }
+.clearfix:after{
+  clear: both;
+  display: block;
+  content: "";
+}
