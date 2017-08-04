@@ -15,6 +15,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(create_params)
+    binding.pry
     if @group.save
       redirect_to root_path
     else
