@@ -1,18 +1,18 @@
 .chat-group-form
   %h1 新規チャットグループ
   = form_for @group do |f|
-    .chat-group-form__field.clearfix
+    .chat-group-form__field
       .chat-group-form__field--left
         = f.label :name, 'グループ名', class: 'chat-group-form__label'
       .chat-group-form__field--right
         = f.text_field :name, placeholder: 'グループ名を入力してください', class: 'chat-group-form__input'
-    .chat-group-form__field.clearfix
+    .chat-group-form__field
       .chat-group-form__field--left
         = f.label :keyword, 'チャットメンバーを追加する', class: "chat-group-form__label"
       .chat-group-form__field--right
         %input#keyword.chat-group-form__input{ type: 'text', name: 'keyword', placeholder: '追加したいユーザー名を入力してください' }
         #user_search-result.chat-group-form__user
-    .chat-group-form__field.clearfix
+    .chat-group-form__field
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right#registered_user

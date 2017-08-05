@@ -1,3 +1,10 @@
+@mixin clearfix {
+  &:after {
+    clear: both;
+    display: block;
+    content: "";
+  }
+}
 .chat-group-form {
   width: 980px;
   margin: 60px auto;
@@ -44,7 +51,7 @@
     line-height: 50px;
     font-weight: bold;
     text-align: right;
-    }
+  }
 
   &__input {
     float: left;
@@ -56,6 +63,7 @@
 
   &__field {
     margin-top: 30px;
+    @include clearfix;
 
     &--left {
       float: left;
@@ -106,9 +114,4 @@
     background-color: #38aef0;
     border: 0;
   }
-}
-.clearfix:after{
-  clear: both;
-  display: block;
-  content: "";
 }

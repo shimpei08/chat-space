@@ -4,23 +4,21 @@ $(document).on('turbolinks:load', function() {
 // 削除ボタンの追加
   function buildRemoveButton(user) {
     var html =
-      `
-      <div class='chat-group-form__user__list'>
-      <p class='chat-group-form__user__name'> ${user.name} </p>
-      <a href='#' class='chat-group-form__user__btn--remove'>削除</a>
-      <input type='hidden' name='group[user_ids][]' value='${user.id}'></input>
+      `<div class="chat-group-form__user__list">
+        <p class="chat-group-form__user__name">${user.name}</p>
+        <a href="#" class="chat-group-form__user__btn--remove">削除</a>
+        <input type="hidden" name="group[user_ids][]" value="${user.id}"></input>
       </div>`;
-      return html;
+    return html;
   }
 
 // 削除ボタンを押したとき
-  $(document).on('click', '.chat-group-form__user__btn--remove',
-    function(e) {
-      e.preventDefault();
-       var user = { name: $(this).parent().find('p').html(), id: $(this).parent().find('input').attr('value') }
+  $(document).on('click', '.chat-group-form__user__btn--remove',function(e) {
+    e.preventDefault();
+    var user = { name: $(this).parent().find('p').html(), id: $(this).parent().find('input').attr('value') }
     buildAddButton(user);
     $(this).parent("div").remove();
-    });
+  });
 // インクリメンタルサーチで追加した時
   $(document).on('click', '.chat-group-form__user__btn--add', function(e) {
     e.preventDefault();
@@ -33,31 +31,29 @@ $(document).on('turbolinks:load', function() {
 // 一致した場合
   function buildAddButton(user) {
     var html =
-      `
-      <div class='chat-group-form__user__list'>
-      <p class='chat-group-form__user__name'> ${user.name} </p>
-      <a href='#' class='chat-group-form__user__btn--add'>追加</a>
-      <input type='hidden' name='add_user_ids' value='${user.id}'></input>
+      `<div class="chat-group-form__user__list">
+        <p class="chat-group-form__user__name">${user.name}</p>
+        <a href="#" class="chat-group-form__user__btn--add">追加</a>
+        <input type="hidden" name="add_user_ids" value="${user.id}"></input>
       </div>`;
     search_result.append(html);
   }
 // 一致しない場合
   function buildNoData(input) {
     var html =
-    `<p class='chat-group-form__user__name'> ${input} </p>`
+      `<p class="chat-group-form__user__name">${input}</p>`
     search_result.append(html);
   }
-
+// ajax通信
   $('#keyword').on('keyup', function(e) {
     $('#user_search_result').empty();
-    var input = $("#keyword").val();
-  // インクリメンタルサーチをする
+    var input = $('#keyword').val();
     $.ajax({
       type: 'GET',
       url: '/users/search',
       data: {keyword: input},
       datatype: 'json'
-      })
+    })
 
     .done(function(datas) {
       $('#user_search-result').empty();
@@ -66,12 +62,10 @@ $(document).on('turbolinks:load', function() {
           buildAddButton(data);
         });
       }
-
       else {
         buildNoData("一致する人物はいません。");
       }
     })
-
     .fail(function() {
       console.log('error');
     });
