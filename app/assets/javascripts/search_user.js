@@ -65,9 +65,6 @@ $(document).on('turbolinks:load', function() {
       else {
         buildNoData("一致する人物はいません。");
       }
-    })
-    .fail(function() {
-      console.log('error');
     });
   });
 });
