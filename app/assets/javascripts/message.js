@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function() {
+
   function buildHTML(message) {
     var html =
       `<li class ="content__list">
@@ -34,4 +35,23 @@ $(document).on('turbolinks:load', function() {
       alert('error');
     });
   });
+
+  // 自動更新のための関数
+  var autoreload = function() {
+    $.ajax({
+      type:         'GET',
+      url:          location.href,
+      dataType:     'json'
+    })
+    .done(function(datas) {
+      insertHTML = ''
+      datas.forEach(function(data) {
+        insertHTML += buildHTML(data);
+      });
+    })
+    .fail(function(data) {
+      alert('自動更新ができませんでした')
+    });
+  }
+  var timer = setInterval(autoreload, 5000);
 });
