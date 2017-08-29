@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
     $('.comment__submit').removeAttr('data-disable-with');
 //  formdataを一括で送る
     var message = new FormData($('.comment').get(0));
-    var current_group_id = $('.main').data('group-id')
+    var current_group_id = $('.main').data('groupId')
     $.ajax({
       type:        'POST',
       url:         '/groups/'+ current_group_id+ '/messages',
@@ -37,21 +37,29 @@ $(document).on('turbolinks:load', function() {
   });
 
   // 自動更新のための関数
-  var autoreload = function() {
-    $.ajax({
-      type:         'GET',
-      url:          location.href,
-      dataType:     'json'
-    })
-    .done(function(datas) {
-      insertHTML = ''
-      datas.forEach(function(data) {
-        insertHTML += buildHTML(data);
+  var interval = setInterval(function() {
+    if(window.location.href.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        type:         'GET',
+        url:          location.href,
+        dataType:     'json'
+      })
+      .done(function(datas) {
+        var id = $('.content_list').data('messageId')
+        insertHTML = ''
+        datas.forEach(function(data) {
+          if (data.id > id) {
+          insertHTML += buildHTML(data);
+          $('.content').prepend(insertHTML);
+          }
+        });
+      })
+      .fail(function(data) {
+        alert('自動更新ができませんでした')
       });
-    })
-    .fail(function(data) {
-      alert('自動更新ができませんでした')
-    });
-  }
-  var timer = setInterval(autoreload, 5000);
+    }
+    else {
+      clearInterval(interval);
+    }
+  }, 5*1000);
 });
