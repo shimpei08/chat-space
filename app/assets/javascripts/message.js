@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
 
   function buildHTML(message) {
     var html =
-      `<li class ="content__list">
+      `<li class="content__list" data-message-id= "${message.id}" >
         <h2 class="message__name">${message.name}</h2>
         <h4 class="message__created_at">${message.created_at}</h4>
         <p class="message__body">${message.body}</p>
@@ -49,8 +49,8 @@ $(document).on('turbolinks:load', function() {
         var insertHTML = ''
         datas.forEach(function(data) {
           if (data.id > id) {
-          insertHTML += buildHTML(data);
-          $('.content').prepend(insertHTML);
+            insertHTML += buildHTML(data);
+            $('.content').prepend(insertHTML);
           }
         });
       })
@@ -60,6 +60,6 @@ $(document).on('turbolinks:load', function() {
     }
     else {
       clearInterval(interval);
-    }
+    };
   }, 5*1000);
 });
