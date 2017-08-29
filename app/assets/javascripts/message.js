@@ -45,8 +45,8 @@ $(document).on('turbolinks:load', function() {
         dataType:     'json'
       })
       .done(function(datas) {
-        var id = $('.content_list').data('messageId')
-        insertHTML = ''
+        var id = $('.content__list').data('messageId')
+        var insertHTML = ''
         datas.forEach(function(data) {
           if (data.id > id) {
           insertHTML += buildHTML(data);
